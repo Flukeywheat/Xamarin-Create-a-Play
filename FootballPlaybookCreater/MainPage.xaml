@@ -4,13 +4,33 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FootballPlaybookCreater.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="This is to test Functionality" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+             x:Class="FootballPlaybookCreater.MainPage"
+             BackgroundColor="SpringGreen">
+    <AbsoluteLayout Padding="5">
+        <Label Text="Top-left Endzone" 
+               AbsoluteLayout.LayoutBounds="0,0,0.5,0.25" 
+               AbsoluteLayout.LayoutFlags="All"/>
+        <Label Text="Top-right Endzone" 
+               AbsoluteLayout.LayoutBounds="1,0,0.5,0.25" 
+               AbsoluteLayout.LayoutFlags="All" 
+               HorizontalTextAlignment="End" />
+        <StackLayout AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5">
+            <Button Text="New Playbook" BackgroundColor="LightYellow" Clicked="NewPlaybook_Clicked"/>
+            <Button Text="Load Playbook" BackgroundColor="LightYellow" Clicked="LoadPlaybook_Clicked" />
+            <Button Text="Settings Playbook" BackgroundColor="LightYellow" Clicked="Settings_Clicked"/>
+            <Button Text="Exit Playbook" BackgroundColor="LightYellow" Clicked="Exit_Clicked"/>
+        </StackLayout>
+        <Label Text="Bottom-left Endzone" 
+               AbsoluteLayout.LayoutBounds="0,1,0.5,0.1" 
+               AbsoluteLayout.LayoutFlags="All" 
+               VerticalTextAlignment="End"/>
+        <Label Text="Bottom-right Endzone" 
+               AbsoluteLayout.LayoutBounds="1,1,0.5,0.1" 
+               AbsoluteLayout.LayoutFlags="All" 
+               HorizontalTextAlignment="End" 
+               VerticalTextAlignment="End"/>
+    </AbsoluteLayout>
+    
 
 </ContentPage>
