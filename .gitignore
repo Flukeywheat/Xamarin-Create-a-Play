@@ -1,1 +1,4 @@
-*debug
+bin
+obj
+packages
+debug
