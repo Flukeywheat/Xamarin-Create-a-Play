@@ -4,8 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FootballPlaybookCreater.NewPlaybookPage">
-    <ContentPage.Content>
-        <Label Text="This is a Test" />
-    </ContentPage.Content>
+             x:Class="FootballPlaybookCreater.NewPlaybookPage"
+             Title="New Playbook">
+    <TableView Intent="Settings">
+        <TableRoot>
+            <TableSection>
+                <EntryCell Text="Playbook Name" HorizontalTextAlignment="Center"/>
+                <SwitchCell x:Name="Offense_Defense_Switch" OnColor="Gray" OnChanged="Offense_Defense_Switch_OnChanged"/>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal" >
+                            <Picker HorizontalOptions="CenterAndExpand" Title="Base Formation (Optional)" >
+                                <Picker.Items>
+                                    <x:String >Aaaaaaaaaaaa</x:String>
+                                    <x:String>Aaaaaaaaaaaa</x:String>
+                                    <x:String>Aaaaaaaaaaaa</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
 </ContentPage>

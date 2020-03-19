@@ -5,7 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FootballPlaybookCreater.MainPage"
-             BackgroundColor="SpringGreen">
+             BackgroundColor="SpringGreen"
+             >
+    <NavigationPage.TitleView>
+        <Label Text="Zaen's Custom Playbook" 
+               HorizontalTextAlignment="Center" 
+               FontAttributes="Bold"
+               FontSize="30"
+               TextColor="White"/>
+    </NavigationPage.TitleView>
+    
+    
     <AbsoluteLayout Padding="5">
         <Label Text="Top-left Endzone" 
                AbsoluteLayout.LayoutBounds="0,0,0.5,0.25" 
