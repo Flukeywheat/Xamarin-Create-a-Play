@@ -9,7 +9,7 @@
     <TableView Intent="Settings">
         <TableRoot>
             <TableSection>
-                <EntryCell Text="Playbook Name" HorizontalTextAlignment="Center"/>
+                <EntryCell x:Name="playbookNameEntryCell" Text="Playbook Name" HorizontalTextAlignment="Center"/>
                 <SwitchCell x:Name="Offense_Defense_Switch" OnColor="Gray" OnChanged="Offense_Defense_Switch_OnChanged"/>
                 <ViewCell>
                     <ViewCell.View>
@@ -18,6 +18,15 @@
                                     HorizontalOptions="CenterAndExpand"
                                     Title="Base Formation (Optional)" >
                             </Picker>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="ADD" Clicked="AddButton_Clicked"/>
+                            <Button Text="Update" />
+                            <Button Text="Delete" />
                         </StackLayout>
                     </ViewCell.View>
                 </ViewCell>
