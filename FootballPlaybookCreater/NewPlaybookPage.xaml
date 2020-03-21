@@ -25,8 +25,8 @@
                     <ViewCell.View>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Button Text="ADD" Clicked="AddButton_Clicked"/>
-                            <Button Text="Update" />
-                            <Button Text="Delete" />
+                            <Label Text="Dev Use only"/>
+                            <Button Text="Delete" Clicked="DeleteButton_Clicked" />
                         </StackLayout>
                     </ViewCell.View>
                 </ViewCell>

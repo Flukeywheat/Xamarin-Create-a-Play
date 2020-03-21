@@ -54,8 +54,16 @@ namespace FootballPlaybookCreater
         private void AddButton_Clicked(object sender, EventArgs e)
         {
             BaseFormation newPlaybook = new BaseFormation {Name = playbookNameEntryCell.Text };
+
+
             _connection.InsertAsync(newPlaybook);
             playbooks.Add(newPlaybook);
+            BaseFormationsPicker.Items.Add(newPlaybook.Name);
+        }
+
+        private void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            RemoveAllBaseFormations();
         }
 
         #endregion
@@ -67,11 +75,25 @@ namespace FootballPlaybookCreater
             {
                 foreach (var formation in playbooks)
                 {
-                    BaseFormationsPicker.ItemsSource.Add(formation);
+                    BaseFormationsPicker.Items.Add(formation.Name);
                 }
             }           
         }
+
+        private void RemoveAllBaseFormations()
+        {
+            _connection.DeleteAllAsync<BaseFormation>();
+            if (playbooks != null)
+            {
+                foreach (var formation in playbooks)
+                {
+                    BaseFormationsPicker.Items.Remove(formation.Name);
+                }
+            }
+        }
         #endregion
+
+        
     }
 
 
