@@ -26,7 +26,7 @@ namespace FootballPlaybookCreater
     {
         #region Properties and Constructors
         private SQLiteAsyncConnection _connection;
-        private ObservableCollection<BaseFormation> playbooks;
+        private ObservableCollection<BaseFormation> baseFormations;
         public NewPlaybookPage()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace FootballPlaybookCreater
             base.OnAppearing();
             
             await _connection.CreateTableAsync<BaseFormation>();
-            playbooks = new ObservableCollection<BaseFormation>(await _connection.Table<BaseFormation>().ToListAsync());
+            baseFormations = new ObservableCollection<BaseFormation>(await _connection.Table<BaseFormation>().ToListAsync());
             GetBaseFormations();
         }
         #endregion
@@ -51,13 +51,13 @@ namespace FootballPlaybookCreater
             Offense_Defense_Switch.Text = (e.Value) ? "Defense" : "Offense";
         }
 
-        private void AddButton_Clicked(object sender, EventArgs e)
+        private async void AddButton_Clicked(object sender, EventArgs e)
         {
             BaseFormation newPlaybook = new BaseFormation {Name = playbookNameEntryCell.Text };
 
 
-            _connection.InsertAsync(newPlaybook);
-            playbooks.Add(newPlaybook);
+            await _connection.InsertAsync(newPlaybook);
+            baseFormations.Add(newPlaybook);
             BaseFormationsPicker.Items.Add(newPlaybook.Name);
         }
 
@@ -71,21 +71,23 @@ namespace FootballPlaybookCreater
         #region HelperFunctions
         private void GetBaseFormations()
         {
-            if ( playbooks != null)
+            if (baseFormations != null)
             {
-                foreach (var formation in playbooks)
+                foreach (var formation in baseFormations)
                 {
                     BaseFormationsPicker.Items.Add(formation.Name);
                 }
             }           
         }
 
-        private void RemoveAllBaseFormations()
+        private async void RemoveAllBaseFormations()
         {
-            _connection.DeleteAllAsync<BaseFormation>();
-            if (playbooks != null)
+            await _connection.DeleteAllAsync<BaseFormation>();
+
+
+            if (baseFormations != null)
             {
-                foreach (var formation in playbooks)
+                foreach (var formation in baseFormations)
                 {
                     BaseFormationsPicker.Items.Remove(formation.Name);
                 }
